@@ -671,7 +671,7 @@ def maven_impl(mctx):
             merged_repo["boms"] = _deduplicate_non_root_artifacts(bazel_dep_to_non_root_boms, True)
 
         # For list attributes, concatenate but avoid duplicates (root items first)
-        for list_attr in ["repositories", "excluded_artifacts", "additional_netrc_lines", "additional_coursier_options"]:
+        for list_attr in ["repositories", "excluded_artifacts", "additional_netrc_lines"]:
             root_list = root_repo.get(list_attr, [])
             non_root_list = non_root_repo.get(list_attr, [])
             merged_repo[list_attr] = _merge_repo_lists(root_list, non_root_list)
